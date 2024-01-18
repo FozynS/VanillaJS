@@ -49,6 +49,14 @@ export default () => {
 
   wrapper.appendChild(fragment);
 
+  const setActualWidth = () => {
+    const widthForLine = wrapper.offsetWidth / menuItems.length;
+    lavaEffect.style.cssText += `
+      width: ${widthForLine}px;
+    `;
+  }
+  setActualWidth();
+
   const onClick = (e) => {
     e.preventDefault();
 
@@ -67,7 +75,5 @@ export default () => {
     `;
   }
 
-
   wrapper.addEventListener('click', onClick);
-
 };

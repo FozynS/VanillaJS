@@ -37,7 +37,7 @@ export default () => {
     const productList = [];
 
     for (const item of productsList) {
-      
+
       const productItem = document.createElement('div');
       const {title, description} = item;
 
@@ -63,10 +63,6 @@ export default () => {
   createProductsList().forEach(item => {
     wrapper.appendChild(item);
   })
-
-
-
-
 
   console.log('products-list wrapper', wrapper);
 };
