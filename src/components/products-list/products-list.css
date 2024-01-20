@@ -1,10 +1,11 @@
-[data-module="products-list"] {
+[data-module='products-list'] {
   align-content: flex-start;
   display: flex;
   flex-wrap: wrap;
 }
 
 .products-list--item {
+  object-fit: cover;
   margin-right: 20px;
   margin-top: 20px;
   width: 30%;

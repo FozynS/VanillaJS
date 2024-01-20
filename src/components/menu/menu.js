@@ -26,18 +26,19 @@ export default () => {
   const fragment = document.createDocumentFragment();
   const lavaEffect = document.querySelector('.effect');
 
-  let itemWidthProcent = Math.ceil((wrapper.offsetWidth / menuItems.length - 1) / wrapper.offsetWidth * 100);
+  let itemWidthProcent = Math.ceil(
+    ((wrapper.offsetWidth / menuItems.length - 1) / wrapper.offsetWidth) * 100
+  );
 
   const getIndexByLink = (link) => {
-    return menuItems.findIndex(el => {
+    return menuItems.findIndex((el) => {
       return el.bgColor === link.dataset.bgColor;
     });
-  }
+  };
 
   for (const item of menuItems) {
-
     const link = document.createElement('a');
-    const {text, bgColor} = item;
+    const { text, bgColor } = item;
 
     link.classList.add('menu--item');
     link.href = '#';
@@ -54,7 +55,7 @@ export default () => {
     lavaEffect.style.cssText += `
       width: ${widthForLine}px;
     `;
-  }
+  };
   setActualWidth();
 
   const onClick = (e) => {
@@ -73,7 +74,7 @@ export default () => {
       width: ${widthForLine}px;
       border-color: ${bgColor};
     `;
-  }
+  };
 
   wrapper.addEventListener('click', onClick);
 };

@@ -37,9 +37,8 @@ export default () => {
     const productList = [];
 
     for (const item of productsList) {
-
       const productItem = document.createElement('div');
-      const {title, description} = item;
+      const { title, description } = item;
 
       productItem.className = 'products-list--item';
 
@@ -52,17 +51,17 @@ export default () => {
           />
           <p class="products-list--description">${description}</p>
         <button class="products-list--button-more">read more</button>
-      `
+      `;
 
       productList.push(productItem);
     }
 
     return productList;
-  }
+  };
 
-  createProductsList().forEach(item => {
+  createProductsList().forEach((item) => {
     wrapper.appendChild(item);
-  })
+  });
 
   console.log('products-list wrapper', wrapper);
 };
