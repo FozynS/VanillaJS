@@ -1,7 +1,9 @@
-import initMenu from './components/menu/menu.js';
-import initProductsList from './components/products-list/products-list.js';
+import Menu from './components/common-menu/common-menu.js';
+import ProductsList from './components/products-list/products-list.js';
+import Filter from './components/filter/filter.js';
 
 document.addEventListener('DOMContentLoaded', async () => {
-  initMenu();
-  initProductsList();
+  const menu = new Menu();
+  const productList = new ProductsList();
+  const filter = new Filter();
 });

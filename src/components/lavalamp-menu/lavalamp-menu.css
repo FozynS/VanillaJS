@@ -1,5 +1,7 @@
   [data-module="menu"] {
     display: flex;
+    position: relative;
+    height: 50px;
     justify-content: space-between;
     font-weight: 700;
     margin-bottom: 40px;
@@ -8,6 +10,9 @@
   }
 
   .menu--item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: #000;
     flex: 1;
     padding: 10px;
@@ -17,9 +22,10 @@
   .effect {
     position: absolute;
     z-index: -1;
-    width: 0px;
-    height: 50px;
-    margin-left: 10px;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 100%;
     background: transparent;
     transition: 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     border-bottom: 2px solid;

@@ -1,6 +1,9 @@
-@import url(./components/menu/menu.css);
+@import url(./components/common-menu/common-menu.css);
 @import url(./components/products-list/products-list.css);
 
+body {
+  padding: 10px;
+}
 #app {
   overflow: hidden;
   padding: 10px;
