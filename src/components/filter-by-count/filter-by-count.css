@@ -1,0 +1,9 @@
+[data-module="filter-by-count"] {
+  margin-left: 20px;
+  width: 4%;
+}
+.select {
+  height: 25px;
+  border-radius: 5px;
+  border: 1px solid #000;
+}

@@ -1,0 +1,10 @@
+[data-module="filter-by-topic"] > label{
+  vertical-align: middle;
+  margin-left: 10px;
+}
+[data-module="filter-by-topic"] > label > input[type="checkbox"]{
+  margin: 0 10px 0 10px;
+}
+[data-module="filter-by-topic"] > label::after{
+  content: '|';
+}

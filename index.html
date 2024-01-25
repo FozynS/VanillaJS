@@ -20,34 +20,37 @@
     <script type="module" src="./src/app.js"></script>
   </head>
   <body>
-    
-    <header>
-      <div data-module="menu">
-        <div class="effect"></div>
-      </div>
-      <div data-module="list-menu">
-      </div>
+
+    <header data-module="common-menu">
+      <div data-module="menu"></div>
+      <div data-module="list-menu"></div>
     </header>
 
-    <div class="filter">
+    <div data-module="filter-panel">
 
-      <label><input type="checkbox">first</label>
-      <label><input type="checkbox">second</label>
-      <label><input type="checkbox">third</label>
-      <label><input type="checkbox">forth</label>
+      <div data-module="filter-by-topic"></div>
 
-      <select name="" id="">
-        <option value="">12</option>
-        <option value="">24</option>
-        <option value="">36</option>
-        <option value="">all</option>
-      </select>
+      <div data-module="filter-by-count">
+        <select class="select" name="" id="">
+          <option value="12">12</option>
+          <option value="24">24</option>
+          <option value="36">36</option>
+          <option value="all">all</option>
+        </select>
+      </div>
+
+      <div data-module="sort-by">
+        <select name="" id="">
+          <option value="default">default</option>
+          <option value="asc">asc</option>
+          <option value="desc">desc</option>
+        </select>
+      </div>
+
     </div>
 
     <div id="app">
-
-      <div data-module="products-list">
-      </div>
+      <div data-module="products-list"></div>
     </div>
   </body>
 </html>

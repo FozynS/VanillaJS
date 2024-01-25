@@ -46,6 +46,8 @@ export default class Menu {
       }
       if(!this.lavaLampMenu) {
         this.lavaLampMenu = new LavaLampMenu(menuItems);
+      } else {
+        this.lavaLampMenu.refreshSizes();
       }
     }
 

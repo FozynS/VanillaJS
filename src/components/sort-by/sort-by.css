@@ -1,0 +1,6 @@
+[data-module="sort-by"] {
+  margin-left: 20px;
+}
+[data-module="sort-by"] > select {
+  border: 1px solid #000;
+}

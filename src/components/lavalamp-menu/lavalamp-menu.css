@@ -1,19 +1,18 @@
-  [data-module="menu"] {
-    display: flex;
-    position: relative;
-    height: 50px;
-    justify-content: space-between;
-    font-weight: 700;
-    margin-bottom: 40px;
-    text-align: center;
-    text-transform: uppercase;
-  }
+[data-module="menu"] {
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+}
 
   .menu--item {
     display: flex;
     justify-content: center;
     align-items: center;
     color: #000;
+    height: 50px;
     flex: 1;
     padding: 10px;
     text-decoration: none;

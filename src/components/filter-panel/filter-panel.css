@@ -1,0 +1,10 @@
+@import url(../filter-by-count/filter-by-count.css);
+@import url(../filter-by-topic/filter-by-topic.css);
+@import url(../sort-by/sort-by.css);
+
+[data-module="filter-panel"] {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  margin-left: 20px;
+}

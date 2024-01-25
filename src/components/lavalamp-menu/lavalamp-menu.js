@@ -1,18 +1,15 @@
-//** ДЗ Передалать код так чтобы было как можно меньше this */
 
 export default class LavaLampMenu {
   constructor(menuItems) {
     this.wrapper = document.querySelector('[data-module="menu"]');
-    this.lavaEffect = document.createElement('div');
     this.menuItems = menuItems;
-
+    this.lavaEffect = document.createElement('div');
     const fragment = document.createDocumentFragment();
 
-    this.wrapperOffsetWidth = this.wrapper.offsetWidth;
     this.menuItemsLength = this.menuItems.length;
 
     this.itemWidthProcent = Math.ceil(
-      ((this.wrapperOffsetWidth / this.menuItemsLength - 1) / this.wrapperOffsetWidth) * 100
+      ((this.wrapper.offsetWidth / this.menuItemsLength - 1) / this.wrapper.offsetWidth) * 100
     );
 
     for (const item of this.menuItems) {
@@ -42,11 +39,15 @@ export default class LavaLampMenu {
   }
 
   setActualWidth() {
-    const widthForLine = this.wrapperOffsetWidth / this.menuItemsLength;
+    const widthForLine = this.wrapper.offsetWidth / this.menuItemsLength;
     this.lavaEffect.classList.add('effect');
     this.lavaEffect.style.cssText += `
       width: ${widthForLine}px;
     `;
+  }
+
+  refreshSizes() {
+    this.setActualWidth();
   }
 
   onClick(e) {
@@ -55,7 +56,7 @@ export default class LavaLampMenu {
 
     const index = this.getIndexByLink(e.target);
     const widthProcent = this.itemWidthProcent * index;
-    const widthForLine = this.wrapperOffsetWidth / this.menuItemsLength;
+    const widthForLine = this.wrapper.offsetWidth / this.menuItemsLength;
 
     const currentLink = e.target;
     const bgColor = currentLink.dataset.bgColor;

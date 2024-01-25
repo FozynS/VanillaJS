@@ -1,5 +1,7 @@
 @import url(./components/common-menu/common-menu.css);
 @import url(./components/products-list/products-list.css);
+@import url(./components/products-list/products-list.css);
+@import url(./components/filter-panel/filter-panel.css);
 
 body {
   padding: 10px;
