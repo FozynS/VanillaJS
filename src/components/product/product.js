@@ -10,10 +10,6 @@ export default class Product {
     const productListInstance = new ProductList(productsList);
     const filtersInstance = new FilterPanel(filters);
 
-    this.filtersInstance.addEventListener('change', this.onItemChange);
   }
 
-  onItemChange() {
-    console.log('OK')
-  }
 }
