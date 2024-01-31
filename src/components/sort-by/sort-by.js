@@ -1,6 +1,12 @@
-export default class FilterBySort {
+import Component from "../../lib/component/component.js";
+
+export default class FilterBySort extends Component{
   constructor() {
-    const wrapper = document.querySelector('[data-module="sort-by"]');
-    console.log('Filter by Sort');
+    super();
+    const wrapper = document.querySelector('[data-module="select_sort-by"]');
+    // for (const item of wrapper) {
+      // console.log(item);
+    // }
+    // console.log('Filter by Sort' , wrapper);
   }
 }

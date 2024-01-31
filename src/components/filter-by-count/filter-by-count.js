@@ -1,7 +1,17 @@
-export default class ByCount {
-  constructor() {
-    const wrapper = document.querySelector('[data-module="filter-by-count"]');
-    console.log('Filter by Count');
+import Component from "../../lib/component/component.js";
 
+export default class ByCount extends Component{
+  constructor() {
+    super();
+
+    this.wrapper = document.querySelector('select');
+
+    this.getValue = this.getValue.bind(this);
+    this.wrapper.addEventListener('change', this.getValue);
+  }
+
+  getValue() {
+    const count = this.wrapper.value;
+    return count;
   }
 }

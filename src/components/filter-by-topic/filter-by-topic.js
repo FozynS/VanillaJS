@@ -1,7 +1,9 @@
+import Component from '../../lib/component/component.js';
 import FiltersItem from '../filters-item/filters-item.js';
 
-export default class ByTopic {
+export default class ByTopic extends Component{
   constructor(filters) {
+    super();
     const wrapper = document.querySelector('[data-module="filter-by-topic"]')
     const fragment = document.createDocumentFragment();
 
@@ -14,16 +16,9 @@ export default class ByTopic {
       instances.push(instance);
     }
 
-    wrapper.appendChild(fragment);
-
     this.instances = instances;
-    this.onItemChange = this.onItemChange.bind(this);
+
+    wrapper.appendChild(fragment);
   }
 
-  onItemChange() {
-    console.log(
-      'CHANGED',
-      this.instances.filter((i) => i.getState()).map((i) => i.getId())
-    );
-  }
 }

@@ -1,5 +1,6 @@
 import LavaLampMenu from "../lavalamp-menu/lavalamp-menu.js";
 import ListMenu from "../list-menu/list-menu.js";
+import Component from "../../lib/component/component.js";
 
 const menuItems = [
   {
@@ -24,43 +25,43 @@ const menuItems = [
   },
 ];
 
-export default class Menu {
+export default class Menu extends Component{
   constructor() {
+    super();
+
     this.lavaLampMenu = new LavaLampMenu(menuItems);
     this.listMenu = new ListMenu(menuItems);
-    this.handleWindowWidth = this.handleWindowWidth.bind(this);
-    this.handleWindowWidth();
 
-    window.addEventListener('resize', this.handleWindowWidth);
+    this.useMobile = this.useMobile.bind(this);
+    this.useDesktop = this.useDesktop.bind(this);
+
+    this.responsiveHelper = new Component.ResposiveHelper(
+      '(max-width: 1023px)',
+      this.useMobile,
+      this.useDesktop,
+    )
+
   }
 
-  isDektopViewActive() {
-    return window.innerWidth >= 1024;
-  }
-
-  handleWindowWidth() {
-    if(this.isDektopViewActive()) {
-      if(this.listMenu) {
-        this.listMenu.destroy();
-        this.listMenu = null;
-      }
-      if(!this.lavaLampMenu) {
-        this.lavaLampMenu = new LavaLampMenu(menuItems);
-      } else {
-        this.lavaLampMenu.refreshSizes();
-      }
+  useMobile() {
+    if(this.lavaLampMenu) {
+      this.lavaLampMenu.destroy();
+      this.lavaLampMenu = null;
     }
+    if(!this.listMenu) {
+      this.listMenu = new ListMenu(menuItems);
+    }
+  }
 
-
-    if(!this.isDektopViewActive()){
-      if(this.lavaLampMenu) {
-        this.lavaLampMenu.destroy();
-        this.lavaLampMenu = null;
-      }
-      if(!this.listMenu) {
-        this.listMenu = new ListMenu(menuItems);
-      }
-
+  useDesktop() {
+    if(this.listMenu) {
+      this.listMenu.destroy();
+      this.listMenu = null;
+    }
+    if(!this.lavaLampMenu) {
+      this.lavaLampMenu = new LavaLampMenu(menuItems);
+    } else {
+      this.lavaLampMenu.refreshSizes();
     }
   }
 
@@ -69,7 +70,6 @@ export default class Menu {
   }
 
   destroy() {
-
     if(this.lavaLampMenu) {
       this.lavaLampMenu.destroy();
       this.lavaLampMenu = null;

@@ -1,5 +1,8 @@
-export default class FilterItem {
+import Component from "../../lib/component/component.js";
+
+export default class FilterItem extends Component{
   constructor(filterName) {
+    super();
     const domElement = document.createElement('label');
     const checkbox = document.createElement('input');
 
@@ -21,7 +24,4 @@ export default class FilterItem {
     return this.id;
   }
 
-  update() {}
-
-  destroy() {}
 }
