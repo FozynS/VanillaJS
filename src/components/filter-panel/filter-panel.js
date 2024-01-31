@@ -21,8 +21,10 @@ export default class FilterPanel extends Component {
   checkChange(e) {
     if(e.target.tagName === 'INPUT') {
       this.onItemChange();
-    } else if(e.target.tagName === 'SELECT') {
+    } else if(e.target.classList.contains('select')) {
       this.onItemChangeByCount();
+    } else if(e.target.getAttribute('data-module') === 'select_sort-by') {
+      this.sortBy();
     }
   }
 
@@ -37,6 +39,13 @@ export default class FilterPanel extends Component {
     this.emit(
       'count',
       this.FilterByCount.getValue()
+    );
+  }
+
+  sortBy() {
+    this.emit(
+      'sort',
+      this.FilterBySort.getItemsValue()
     );
   }
 }

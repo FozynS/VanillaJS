@@ -12,9 +12,11 @@ export default class Product {
 
     this.updateList = this.updateList.bind(this);
     this.listByCount = this.listByCount.bind(this);
+    this.sortingBy = this.sortingBy.bind(this);
 
     this.filtersInstance.on('change', this.updateList);
     this.filtersInstance.on('count', this.listByCount);
+    this.filtersInstance.on('sort', this.sortingBy);
 
   }
 
@@ -23,15 +25,21 @@ export default class Product {
       ? productsList
       : productsList.filter(({category}) => category.includes(newFilters));
 
-    this.productListInstance.updateList(this.filteredProductList);
+    this.productListInstance.createList(this.filteredProductList);
   }
 
   listByCount(count) {
     if(!count) {
-      return productsList;
+      return this.filteredProductList || productsList;
     } else {
-      this.productListInstance.updateList(productsList, count);
+      const productList = this.filteredProductList || productsList;
+      this.productListInstance.updateList(productList, count);
     }
+  }
+
+  sortingBy(sort) {
+    const productList = this.filteredProductList || productsList;
+    this.productListInstance.updateList(productList, sort);
   }
 
   update() {}

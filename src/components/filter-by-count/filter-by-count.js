@@ -11,7 +11,6 @@ export default class ByCount extends Component{
   }
 
   getValue() {
-    const count = this.wrapper.value;
-    return count;
+    return this.wrapper.value;
   }
 }

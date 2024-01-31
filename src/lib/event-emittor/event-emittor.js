@@ -2,6 +2,7 @@ export default class {
   events = {};
 
   on(eventName, cb) {
+    console.log(this.events);
     if(!this.events[eventName]) {
       this.events[eventName] = [];
     }
